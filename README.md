@@ -1,5 +1,5 @@
 # ProjecteM7
-Projecte de Paraulògic marca blanca
+# ParaulògicMB - Projecte de Paraulògic Marca Blanca
 
 
 ## ENUNCIAT
@@ -61,3 +61,23 @@ si es supera aquest %.
 3. No s’avaluarà el projecte si no s’assoleix un mínim de 80% de commits en les dates previstes.
 4. Tots els projectes no originals o còpies seran qualificats amb un 0.
 5. Es farà ús d’una rúbrica d’avaluació que podreu consultar al moodle.
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+## 1. Descripció del projecte 
+
+Vaig començar a programar PHP al gener de 2022, al curs de Programació de Sistemes Informàtics del SOC, a l'intitut Vidal i Barraquer.
+Al llarg del mòdul 2, vam realitzar diferents projectes i un d'ells era una simulació del joc [Paraulògic](https://www.vilaweb.cat/paraulogic/) que més tard va desenvolupar en una versió del joc del Penjat.
+
+Paraulògic és un joc que consisteix en 7 lletres situades dins de 7 hexàgons, aquestes lletres poden conformar una sèrie de paraules.
+L'objectiu del joc és endevinar paraules utilitzant combinacions de les lletres que ens proporcionen. A més paraules, major puntuació. 
+Aquestes lletres i paraules canvien cada dia, es poden demanar pistes i la puntuació pot ser compartida a les xarxes socials.
+
+El Paraulògic va sorgir com a resposta a una moda de jocs d'endevinar paraules (veure [Wordle](https://es.wikipedia.org/wiki/Wordle) o [Selling Bee](https://en.wikipedia.org/wiki/The_New_York_Times_Spelling_Bee)).
+
+La idea amb aquest projecte de ParaulògicMB és replicar el joc del Paraulògic amb certes modificacions, afegir-ne algunes característiques pròpies (creació d'usuaris i manteniment de les seves dades).
+
+
+![Exemple Paraulògic](https://github.com/lace8guti/ProjecteM7/blob/main/Captura%20de%202023-03-02%2013-57-00.png?raw=true)
