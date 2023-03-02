@@ -34,7 +34,7 @@ Projecte de Paraulògic marca blanca
 
 - Grups de 2 persones
 - Plataforma Github per compartir codi i documentar el projecte
-- 
+
 ## DATA LLIURAMENT
 
 1. 5 maig del 2023
