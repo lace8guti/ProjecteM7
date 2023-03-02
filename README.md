@@ -16,4 +16,4 @@ emmagatzemades en una taula de la Base de dades.
 Exemple Plantilla Mínima de diagrama E-R
 
 
-![Base de datos](https://raw.githubusercontent.com/lace8guti/ProjecteM7/blob/main/Captura de 2023-03-02 12-54-42.png)
+![Base de datos](https://raw.githubusercontent.com/lace8guti/ProjecteM7/blob/main/Captura_de_2023-03-02_12_54-42.png)
