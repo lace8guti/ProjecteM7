@@ -65,6 +65,11 @@ si es supera aquest %.
 
 -----------------------------------------------------------------------------------------------------------------
 
+## 0. SCRUM a Jira:
+
+Utilitzaré per aquest project la tecnologia de Jira per fer un seguiment del projecte i mantenir una dinàmica de treball que em permeti arribar als objectius dins de les dates esperades--> [ParaulogicMB](https://lace8guti.atlassian.net/jira/software/projects/PAR/boards/1)
+
+
 
 ## 1. Descripció del projecte 
 
@@ -81,3 +86,7 @@ La idea amb aquest projecte de ParaulògicMB és replicar el joc del Paraulògic
 
 
 ![Exemple Paraulògic](https://github.com/lace8guti/ProjecteM7/blob/main/Captura%20de%202023-03-02%2013-57-00.png?raw=true)
+
+
+
+
