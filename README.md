@@ -40,7 +40,6 @@ Projecte de Paraulògic marca blanca
 1. 5 maig del 2023
 2. Exposicions del projecte – 08, 09, ... de maig del 2023
 
-
 ## MÈTODE LLIURAMENT I FORMAT
 
 1. Link Github codi font en una tasca Moodle.
