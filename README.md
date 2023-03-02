@@ -16,19 +16,21 @@ Projecte de Paraulògic marca blanca
 ![Base de datos](https://github.com/lace8guti/ProjecteM7/blob/main/Captura%20de%202023-03-02%2012-54-42.png?raw=true)
 
 ## REQUERIMENTS
+
 1. Descripció del projecte (Per a que serveix l’aplicació desenvolupada).
 2. Diagrama E-R.
-3.Model Relacional.
-4.Script DDL SQL.
-5.Seeders SQL per fer les proves (inserts).
-6.Implementar l’aplicació en llenguatge de servidor PHP.
-7.Gestió CRUD online de totes les taules de la base de dades amb paginació.
-8.Aplicació navegable a través de menú principal que permeti accedir a les diferents opcions.
-9.Ús de CSS Bootstrap.
-10.Validació de les dades d’entrada de formularis a nivell servidor.
-11.Validació d’usuaris fent ús de sessions.
-12.Repoblament de formularis.
-13.Utilitzar Repositori Github: codi font compartit per l’equip de treball, documentació de codi i control de versions.
+3. Model Relacional.
+4. Script DDL SQL.
+5. Seeders SQL per fer les proves (inserts).
+6. Implementar l’aplicació en llenguatge de servidor PHP.
+7. Gestió CRUD online de totes les taules de la base de dades amb paginació.
+8. Aplicació navegable a través de menú principal que permeti accedir a les diferents opcions.
+9. Ús de CSS Bootstrap.
+10. Validació de les dades d’entrada de formularis a nivell servidor.
+11. Validació d’usuaris fent ús de sessions.
+12. Repoblament de formularis.
+13. Utilitzar Repositori Github: codi font compartit per l’equip de treball, documentació de codi i control de versions.
+
 
 ## GESTIÓ DEL PROJECTE
 
@@ -43,7 +45,12 @@ Projecte de Paraulògic marca blanca
 ## MÈTODE LLIURAMENT I FORMAT
 
 1. Link Github codi font en una tasca Moodle.
-2. Documentació del projecte inclosa dins fitxer .README: índex continguts, diagrama E-R, model relacional, descripció de les funcionalitats implementades.
+2. Documentació del projecte inclosa dins fitxer .README: 
+- Índex
+- Continguts 
+- Diagrama E-R
+- Model relacional
+- Descripció de les funcionalitats implementades.
 3. Presentació del projecte.
 
 ## AVALUACIÓ
