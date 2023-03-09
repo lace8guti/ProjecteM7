@@ -88,5 +88,45 @@ La idea amb aquest projecte de ParaulògicMB és replicar el joc del Paraulògic
 ![Exemple Paraulògic](https://github.com/lace8guti/ProjecteM7/blob/main/Captura%20de%202023-03-02%2013-57-00.png?raw=true)
 
 
+## 2. Modificacions
 
+A diferència de l'aplicació origial que no tenía cap mena de gestió d'usuaris, en aquesta versió, sí que gestionarem usuaris.
 
+Llavors necessitarem:
+
+1) Una taula Usuaris on es guardi: 
+l'id (autoincrementat, PK),
+el nom d'usuari,
+la contrasenya
+i la puntuació total(FK) d'aquest. 
+
+  - Especificacions:
+  a) El nom d'usuari no podrà contenir ni espais ni caracters especials.
+  b) El nom d'usuari no pot ser una paraula reservada (null, main, etc).
+  c) La contrasenya ha de tenir un mínim de 8 caracters i no pot contenir ni espais ni caracters especials.
+  d) La contrasenya es guardarà com a hash a fi d'evitar emmagatzematge d'informació sensible.
+
+2) Una taula Puntuació que guardarà:
+la puntuació total,
+la puntuació total per dia,
+el dia,
+les paraules que ha respost per dia,
+les paraules que ha respost en total,
+les pistes que ha demanat en un dia i
+les pistes que ha demanat en total.
+
+Funcions
+1. Crear usuari
+
+a) Demana un nom d'usuari -> S'ha de comprovar que aquest nom estigui disponible -> No ha de coinicidir amb un nom d'usuari existent a la taula
+b) Demana un nom d'usuari -> S'ha de comprovar que aquest nom no sigui una paraula reservada i que no contingui cap caracter no vàlid.
+c) Demana una contrasenya -> S'ha de comprovar que aquesta contrasenya no pot contenir ni espais ni caracters especials.
+d) S'ha de realitzar una conversió de la contrasenya al hash y compararla amb el hash emmagatzemat a la BBDD.
+
+2. Iniciar sessió
+
+a) Demana un nom d'usuari i una contrasenya-> Comprovar que ambdòs camps NO estiguin buits -> Si algun dels camps és buit, misstage d'error.
+b) Demana un nom d'usuari i una contrasenya-> Comprovar que el nom d'usuari i la contrasenya són correctes -> Iniciar sessió i guardarla X
+temps.
+
+3. ...
