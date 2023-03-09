@@ -140,4 +140,6 @@ i la puntuació total(FK) d'aquest.
 - b) Demana un nom d'usuari i una contrasenya-> Comprovar que el nom d'usuari i la contrasenya són correctes -> Iniciar sessió i guardarla X
 temps.
 
-3. ...
+3. Generar repte diari:
+- a) El repte diari s'ha de crear cada día a les 00:00, consistirá en una funció que prengui un conjunt de paraules d'un arxiu de text de paraules i en pren
+4. 
