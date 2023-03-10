@@ -132,6 +132,7 @@ i la puntuació total(FK) d'aquest.
 - b) Demana un nom d'usuari -> S'ha de comprovar que aquest nom no sigui una paraula reservada i que no contingui cap caracter no vàlid.
 
 - c) Demana una contrasenya -> S'ha de comprovar que aquesta contrasenya no pot contenir ni espais ni caracters especials.
+
 - d) S'ha de realitzar una conversió de la contrasenya al hash y compararla amb el hash emmagatzemat a la BBDD.
 
 2. Iniciar sessió
@@ -143,3 +144,9 @@ temps.
 3. Generar repte diari:
 - a) El repte diari s'ha de crear cada día a les 00:00, consistirá en una funció que prengui un conjunt de paraules d'un arxiu de text de paraules i en pren
 4. 
+
+
+
+Prova de cas particular:
+
+var t={"l":["m","e","i","a","t","c","d"],"p":{"academia": "acadèmia","academic": "acadèmic","academica": "acadèmica","accadi": "accadi","accadia": "accàdia","accidia": "accídia","acetamida": "acetamida","acid": "àcid","acida": "àcida","acidemia": "acidèmia","aciditat": "aciditat","acimada": "acimada","adam": "adam","adamic": "adàmic","adamica": "adàmica","adamita": "adamita","adamitic": "adamític","adamitica": "adamítica","addicta": "addicta","addicte": "addicte","adiatetic": "adiatètic","adiatetica": "adiatètica","aede": "aede","amatada": "amatada","amida": "amida","atacada": "atacada","cada": "cada","cadec": "càdec","cadet": "cadet","cadi": "cadi","cadmi": "cadmi","cadmic": "càdmic","cadmica": "càdmica","caid": "caid","camada": "camada","cecidi": "cecidi","cicadacia": "cicadàcia","cicadata": "cicadata","daci": "daci","dacia": "dàcia","dad": "dad","dada": "dada o dadà","daic": "daic","daica": "daica","dama": "dama o damà","data": "data","dea": "dea","deca": "decà","decada": "dècada","decidida": "decidida","decidit": "decidit","decim": "dècim","decima": "dècima","deicida": "deïcida","deicidi": "deïcidi","deitat": "deïtat","dema": "demà","demati": "dematí","dia": "dia","diac": "diac","diaca": "diaca","diacid": "diàcid","diacida": "diàcida","diada": "diada","diadema": "diadema","diademada": "diademada","diademat": "diademat","diadic": "diàdic","diadica": "diàdica","diatetic": "diatètic","diatetica": "diatètica","dic": "dic","dicdic": "dic-dic","dictam": "dictam","dictat": "dictat","dictic": "díctic","dictica": "díctica","dida": "dida","didactic": "didàctic","didactica": "didàctica","didim": "dídim","didima": "dídima","didimi": "didimi","die": "diè","dieta": "dieta","dietetic": "dietètic","dietetica": "dietètica","dimidiada": "dimidiada","dimidiat": "dimidiat","dit": "dit","dita": "dita o dità","ditada": "ditada","ditet": "ditet","ecidi": "ecidi","edat": "edat","edema": "edema","edeta": "edetà","edicte": "edicte","eidetic": "eidètic","eidetica": "eidètica","emaciada": "emaciada","emidid": "emídid","idea": "idea","idem": "ídem","imada": "imada","imida": "imida","immediat": "immediat","immediata": "immediata","immeditada": "immeditada","immeditat": "immeditat","macada": "macada","macadam": "macadam","macadamia": "macadàmia","mamada": "mamada","meda": "meda","mede": "mede","medi": "medi","media": "medià","mediat": "mediat","mediata": "mediata","mediateca": "mediateca","medic": "mèdic","medica": "mèdica","mida": "mida","tacada": "tacada","tedi": "tedi","teid": "teid","timid": "tímid","timida": "tímida","timiditat": "timiditat"}
