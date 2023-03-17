@@ -73,10 +73,10 @@ Utilitzaré per aquest project la tecnologia de Jira per fer un seguiment del pr
 
 ## 1. Descripció del projecte 
 
-Vaig començar a programar PHP al gener de 2022, al curs de Programació de Sistemes Informàtics del SOC, a l'intitut Vidal i Barraquer.
-Al llarg del mòdul 2, vam realitzar diferents projectes i un d'ells era una simulació del joc [Paraulògic](https://www.vilaweb.cat/paraulogic/) que més tard va desenvolupar en una versió del joc del Penjat.
+Vaig començar a programar PHP al gener de 2022, al curs de Programació de Sistemes Informàtics del SOC, a l'institut Vidal i Barraquer.
+Al llarg del mòdul 2 vam realitzar diferents projectes, un d'ells era una simulació del joc [Paraulògic](https://www.vilaweb.cat/paraulogic/) que més tard va desenvolupar en una versió del joc del Penjat.
 
-Paraulògic és un joc que consisteix en 7 lletres situades dins de 7 hexàgons, aquestes lletres poden conformar una sèrie de paraules.
+El Paraulògic és un joc que consisteix en 7 lletres situades dins de 7 hexàgons, aquestes lletres poden conformar una sèrie de paraules.
 L'objectiu del joc és endevinar paraules utilitzant combinacions de les lletres que ens proporcionen. A més paraules, major puntuació. 
 Aquestes lletres i paraules canvien cada dia, es poden demanar pistes i la puntuació pot ser compartida a les xarxes socials.
 
@@ -88,5 +88,65 @@ La idea amb aquest projecte de ParaulògicMB és replicar el joc del Paraulògic
 ![Exemple Paraulògic](https://github.com/lace8guti/ProjecteM7/blob/main/Captura%20de%202023-03-02%2013-57-00.png?raw=true)
 
 
+## 2. Modificacions
+
+A diferència de l'aplicació origial que no tenía cap mena de gestió d'usuaris, en aquesta versió, sí que gestionarem usuaris.
+
+### Llavors necessitarem:
+
+1) Una taula Usuaris on es guardi: 
+l'id (autoincrementat, PK),
+el nom d'usuari,
+la contrasenya
+i la puntuació total(FK) d'aquest. 
+
+  Especificacions:
+-  a) El nom d'usuari no podrà contenir ni espais ni caracters especials.  
+-  b) El nom d'usuari no pot ser una paraula reservada (null, main, etc).
+-  c) La contrasenya ha de tenir un mínim de 8 caracters i no pot contenir ni espais ni caracters especials.
+-  d) La contrasenya es guardarà com a hash a fi d'evitar emmagatzematge d'informació sensible.
+
+2) Una taula Puntuació que guardarà:
+- la puntuació total,
+- el dia,
+- les paraules que ha respost per dia,
+- les paraules que ha respost en total,
+- les pistes que ha demanat en un dia i
+- les pistes que ha demanat en total.
+
+3) Una taula Repte que guardi:
+- id del repte,
+- dia
+4) Una taula Paraules que guardi:
+- paraules
+- lletres
+## DIAGRAMA DE CLASES DE L'APLICACIÓ PARAULOGICMB
+![Captura de 2023-03-09 14-14-56](https://user-images.githubusercontent.com/104076150/224034362-206bb97b-919c-4c6e-9835-9ebfce3638c9.png)
+
+### Funcions
+
+1. Crear usuari
+
+- a) Demana un nom d'usuari -> S'ha de comprovar que aquest nom estigui disponible -> No ha de coinicidir amb un nom d'usuari existent a la taula.
+
+- b) Demana un nom d'usuari -> S'ha de comprovar que aquest nom no sigui una paraula reservada i que no contingui cap caracter no vàlid.
+
+- c) Demana una contrasenya -> S'ha de comprovar que aquesta contrasenya no pot contenir ni espais ni caracters especials.
+
+- d) S'ha de realitzar una conversió de la contrasenya al hash y compararla amb el hash emmagatzemat a la BBDD.
+
+2. Iniciar sessió
+
+- a) Demana un nom d'usuari i una contrasenya-> Comprovar que ambdòs camps NO estiguin buits -> Si algun dels camps és buit, misstage d'error.
+- b) Demana un nom d'usuari i una contrasenya-> Comprovar que el nom d'usuari i la contrasenya són correctes -> Iniciar sessió i guardarla X
+temps.
+
+3. Generar repte diari:
+- a) El repte diari s'ha de crear cada día a les 00:00, consistirá en una funció que prengui un conjunt de paraules d'un arxiu de text de paraules i en pren
+4. 
 
 
+
+Prova de cas particular:
+
+var t={"l":["m","e","i","a","t","c","d"],"p":{"academia": "acadèmia","academic": "acadèmic","academica": "acadèmica","accadi": "accadi","accadia": "accàdia","accidia": "accídia","acetamida": "acetamida","acid": "àcid","acida": "àcida","acidemia": "acidèmia","aciditat": "aciditat","acimada": "acimada","adam": "adam","adamic": "adàmic","adamica": "adàmica","adamita": "adamita","adamitic": "adamític","adamitica": "adamítica","addicta": "addicta","addicte": "addicte","adiatetic": "adiatètic","adiatetica": "adiatètica","aede": "aede","amatada": "amatada","amida": "amida","atacada": "atacada","cada": "cada","cadec": "càdec","cadet": "cadet","cadi": "cadi","cadmi": "cadmi","cadmic": "càdmic","cadmica": "càdmica","caid": "caid","camada": "camada","cecidi": "cecidi","cicadacia": "cicadàcia","cicadata": "cicadata","daci": "daci","dacia": "dàcia","dad": "dad","dada": "dada o dadà","daic": "daic","daica": "daica","dama": "dama o damà","data": "data","dea": "dea","deca": "decà","decada": "dècada","decidida": "decidida","decidit": "decidit","decim": "dècim","decima": "dècima","deicida": "deïcida","deicidi": "deïcidi","deitat": "deïtat","dema": "demà","demati": "dematí","dia": "dia","diac": "diac","diaca": "diaca","diacid": "diàcid","diacida": "diàcida","diada": "diada","diadema": "diadema","diademada": "diademada","diademat": "diademat","diadic": "diàdic","diadica": "diàdica","diatetic": "diatètic","diatetica": "diatètica","dic": "dic","dicdic": "dic-dic","dictam": "dictam","dictat": "dictat","dictic": "díctic","dictica": "díctica","dida": "dida","didactic": "didàctic","didactica": "didàctica","didim": "dídim","didima": "dídima","didimi": "didimi","die": "diè","dieta": "dieta","dietetic": "dietètic","dietetica": "dietètica","dimidiada": "dimidiada","dimidiat": "dimidiat","dit": "dit","dita": "dita o dità","ditada": "ditada","ditet": "ditet","ecidi": "ecidi","edat": "edat","edema": "edema","edeta": "edetà","edicte": "edicte","eidetic": "eidètic","eidetica": "eidètica","emaciada": "emaciada","emidid": "emídid","idea": "idea","idem": "ídem","imada": "imada","imida": "imida","immediat": "immediat","immediata": "immediata","immeditada": "immeditada","immeditat": "immeditat","macada": "macada","macadam": "macadam","macadamia": "macadàmia","mamada": "mamada","meda": "meda","mede": "mede","medi": "medi","media": "medià","mediat": "mediat","mediata": "mediata","mediateca": "mediateca","medic": "mèdic","medica": "mèdica","mida": "mida","tacada": "tacada","tedi": "tedi","teid": "teid","timid": "tímid","timida": "tímida","timiditat": "timiditat"}
