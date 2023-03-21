@@ -121,7 +121,7 @@ i la puntuació total(FK) d'aquest.
 - paraules
 - lletres
 ## DIAGRAMA DE CLASES DE L'APLICACIÓ PARAULOGICMB
-![Captura de 2023-03-09 14-14-56](https://user-images.githubusercontent.com/104076150/224034362-206bb97b-919c-4c6e-9835-9ebfce3638c9.png)
+![DIAGRAMA DE CLASES DE L'APLICACIÓ PARAULOGICMB](https://github.com/lace8guti/ProjecteM7-ParaulogicMB/blob/main/Captura%20de%202023-03-21%2009-50-09.png?raw=true)
 
 ### Funcions
 
