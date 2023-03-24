@@ -62,6 +62,8 @@ foreach ($palabras as &$palabra) {
     $palabra = str_replace("·", "", $palabra);
 }
 
+// Utilizar array_map y trim para eliminar los espacios en blanco de cada entrada del array
+$palabras = array_map('trim', $palabras);
 // Cierras el archivo
 fclose($archivo);
 
@@ -75,9 +77,12 @@ fclose($archivo);
 
 // Generar array con todos los caracteres posibles.
 
-$abecedario = range('A', 'Z');
+/*
+$abecedario = range('A', 'H');
 array_push($abecedario, 'Ç');
+*/
 
+/*
 // Generar y guardar un caracter aleatorio dentro del array abecedario
 
 $caracter_aleatorio;
@@ -100,7 +105,7 @@ echo "<br>";
 
 // Buscar las palabras que contengan la letra "N"
 $palabras_con_n = array_filter($palabras, function($palabra) {
-    return strpos($palabra, 'N') !== false;
+    return strpos($palabra, 'N  ') !== false;
 });
 
 // Tomar las primeras 10 palabras que contengan la letra "N"
@@ -108,12 +113,65 @@ $palabras_con_n = array_slice($palabras_con_n, 0, 3000);
 
 // Mostrar el array de palabras que contienen la letra "N"
 //print_r($palabras_con_n);
+*/
 
 
-$letrasAnexas="JALEIOUMN";
-$letraObligatoria="N";
+function generarStringAleatorio() {
+  $consonantes = array(
+    'B', 'C', 'D', 'F', 'G', 'H', 'L', 'M', 'N', 'P', 
+    'R', 'S', 'T', 'V', 'X', 'Y', 'J', 'Q'
+  );
+  $vocales = array('A', 'E', 'I', 'O', 'U', 'E', 'A');
 
-        
+  // Escoger dos vocales al azar
+  $vocal1 = $vocales[array_rand($vocales)];
+  $vocal2 = $vocales[array_rand($vocales)];
+
+  // Asegurar que las dos vocales sean diferentes
+  while ($vocal1 == $vocal2) {
+    $vocal2 = $vocales[array_rand($vocales)];
+  }
+
+  // Aumentar la frecuencia de ciertas consonantes
+  $consonantesAleatorias = array();
+  while (count($consonantesAleatorias) < 5) {
+    $consonante = $consonantes[array_rand($consonantes)];
+    if (!in_array($consonante, $consonantesAleatorias)) {
+      if (in_array($consonante, array('S', 'R', 'L', 'N', 'T'))) {
+        // Aumentar la frecuencia de ciertas consonantes
+        $consonantesAleatorias[] = $consonante;
+      } else {
+        // Reducir la frecuencia de ciertas consonantes
+        if (mt_rand(1, 20) <= 19) {
+          $consonantesAleatorias[] = $consonante;
+        }
+      }
+    }
+  }
+
+  // Combinar las vocales y consonantes en un array
+  $stringAleatorioArray = array($vocal1, $vocal2);
+  shuffle($consonantesAleatorias);
+  $stringAleatorioArray = array_merge($stringAleatorioArray, $consonantesAleatorias);
+
+  // Convertir el array en un string y devolverlo
+  return implode('', $stringAleatorioArray);
+}
+
+/*
+$miStringAleatorio = generarStringAleatorio();
+echo $miStringAleatorio; // Imprime el string aleatorio generado
+echo "<br>";
+    
+$letraAleatoria = substr($miStringAleatorio, mt_rand(0, strlen($miStringAleatorio) - 1), 1);
+echo $letraAleatoria; // Imprime una letra aleatoria del string generado
+echo "<br>";
+*/
+
+$letrasAnexas="AIGRÇST";
+$letraObligatoria="A";
+
+/*        
 // Definir la expresión regular
 $patron = '/^['.$letrasAnexas.']*'.$letraObligatoria.'['.$letrasAnexas.']*$/';
 
@@ -123,10 +181,106 @@ $palabras_con_n = array_filter($palabras, function($palabra) use ($patron) {
 });
 
 // Tomar las primeras 30 palabras que cumplan el patrón
-$palabras_con_n = array_slice($palabras_con_n, 0, 30);
+$palabras_con_n = array_slice($palabras_con_n, 0, 40);
 
 // Mostrar el array de palabras que contienen la letra "N" y están formadas por las letras "A","J","L","E","I","O","U","M"
 print_r($palabras_con_n);
+*/
 
+echo "Control";
+echo "<br>";
+$cantidad = count($palabras);
+echo "El array tiene $cantidad entradas";
+echo "<br>";
 
+/*
+// Definir la expresión regular
+$patron = '/^['.$miStringAleatorio.']*'.$letraAleatoria.'['.$miStringAleatorio.']*$/';
+
+// Filtrar las palabras del array que cumplan el patrón
+$pangrama = array_filter($palabras, function($palabra) use ($patron) {
+    return preg_match($patron, $palabra);
+});
+
+// Tomar las primeras palabras que cumplan el patrón
+$pangrama = array_slice($pangrama, 0, 582237);
+
+// Mostrar el array de palabras que contienen la $letraAleatoria y están formadas por las letras del $patron
+print_r($pangrama);
+*/
+
+function generarPangramas($miStringAleatorio, $letraAleatoria, $palabras) {
+    // Definir la expresión regular
+    $patron = '/^['.$miStringAleatorio.']*'.$letraAleatoria.'['.$miStringAleatorio.']*$/';
+
+    // Filtrar las palabras del array que cumplan el patrón y tengan al menos 4 caracteres
+    $pangramas = array_filter($palabras, function($palabra) use ($patron) {
+        return preg_match($patron, $palabra) && strlen($palabra) >= 5;
+    });
+
+    // Ordenar los pangramas alfabéticamente
+    sort($pangramas);
+
+    // Tomar los primeros 30 pangramas
+    $pangramas = array_slice($pangramas, 0, 30);
+
+    // Si no hay suficientes pangramas, mostrar un mensaje de aviso
+    if (count($pangramas) < 30) {
+        /*
+        echo "No se han podido generar 30 pangramas con la combinación de letras proporcionada";
+        echo "<br>";
+        */
+    }
+
+    // Devolver el array de pangramas
+    return $pangramas;
+}
+
+/*
+ * En lugar de generar strings y letras de forma pseudoaleatoria, vamos a ejecutar las funciones en bucle
+ * El objetivo es conseguir un array de combinaciones de letras que satisfagan los pangramas en longitud y
+ * cantidad.
+ * Para ello, ejecutaremos en bucle estas funciones hasta que guardemos un número considerable de estas combinaciones
+ * 
+ */
+
+//generación de un string de letras pseudoalatorias
+$stringAleatorio = generarStringAleatorio();
+//control
+echo "$stringAleatorio";
+echo "<br>";
+//generación de una letra obligatoria del string de letras pseudoaleatorias
+$letraAleatoria = substr($stringAleatorio, mt_rand(0, strlen($stringAleatorio) - 1), 1);
+//control
+echo "$letraAleatoria";
+echo "<br>";
+
+//generación de pangramas
+$pangramas = generarPangramas($stringAleatorio, $letraAleatoria, $palabras);
+print_r($pangramas);
+
+$combinacionesAceptables = array();
+
+while (count($combinacionesAceptables) < 365) {
+    $miStringAleatorio = generarStringAleatorio();
+    $letraAleatoria = $miStringAleatorio[mt_rand(0, 6)];
+    $pangramas = generarPangramas($miStringAleatorio, $letraAleatoria, $palabras);
+
+    if (count($pangramas) == 30) {
+        $combinacionesAceptables[] = array(
+            'stringAleatorio' => $miStringAleatorio,
+            'letraAleatoria' => $letraAleatoria
+        );
+    }
+}
+
+// Mostrar las combinaciones de letras aceptables
+echo 'Combinaciones de letras aceptables: ';
+foreach ($combinacionesAceptables as $combinacion) {
+    echo $combinacion['stringAleatorio'] . '-' . $combinacion['letraAleatoria'] . ' ';
+}
+echo '<br>';
+
+$cant=count($combinacionesAceptables);
+echo "$cant";
 
