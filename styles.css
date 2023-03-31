@@ -1,0 +1,117 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/css.css to edit this template
+*/
+/* 
+    Created on : 24 de març 2023, 12:19:59
+    Author     : alumne
+*/
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.letters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  margin: 0 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #666;
+  text-transform: uppercase;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 1rem;
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  outline: none;
+}
+
+button[type="submit"] {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #ffcd00;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.hexagon-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.hexagon {
+  position: relative;
+  width: 80px;
+  height: 92.38px;
+  background-color: #fff;
+  margin: 15px 10px;
+  transform: rotate(120deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 46.19px solid #fff;
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 46.19px solid #fff;
+}
+
+.highlight {
+  color: red;
+}
+

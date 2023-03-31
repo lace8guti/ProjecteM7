@@ -187,11 +187,11 @@ $palabras_con_n = array_slice($palabras_con_n, 0, 40);
 print_r($palabras_con_n);
 */
 
-echo "Control";
-echo "<br>";
+//echo "Control";
+//echo "<br>";
 $cantidad = count($palabras);
-echo "El array tiene $cantidad entradas";
-echo "<br>";
+//echo "El array tiene $cantidad entradas";
+//echo "<br>";
 
 /*
 // Definir la expresión regular
@@ -212,7 +212,8 @@ print_r($pangrama);
 function generarPangramas($miStringAleatorio, $letraAleatoria, $palabras) {
     // Definir la expresión regular
     $patron = '/^['.$miStringAleatorio.']*'.$letraAleatoria.'['.$miStringAleatorio.']*$/';
-
+    echo "$patron";
+    echo "<br>";
     // Filtrar las palabras del array que cumplan el patrón y tengan al menos 4 caracteres
     $pangramas = array_filter($palabras, function($palabra) use ($patron) {
         return preg_match($patron, $palabra) && strlen($palabra) >= 5;
@@ -247,13 +248,13 @@ function generarPangramas($miStringAleatorio, $letraAleatoria, $palabras) {
 //generación de un string de letras pseudoalatorias
 $stringAleatorio = generarStringAleatorio();
 //control
-echo "$stringAleatorio";
-echo "<br>";
+//echo "$stringAleatorio";
+//echo "<br>";
 //generación de una letra obligatoria del string de letras pseudoaleatorias
 $letraAleatoria = substr($stringAleatorio, mt_rand(0, strlen($stringAleatorio) - 1), 1);
 //control
-echo "$letraAleatoria";
-echo "<br>";
+//echo "$letraAleatoria";
+//echo "<br>";
 
 //generación de pangramas
 $pangramas = generarPangramas($stringAleatorio, $letraAleatoria, $palabras);
@@ -283,4 +284,36 @@ echo '<br>';
 
 $cant=count($combinacionesAceptables);
 echo "$cant";
+?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Spelling Bee</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Spelling Bee</h1>
+    <div class="letters">
+      <?php 
+        // Mostrar las letras de una de las combinaciones aceptables
+        $combinacion = $combinacionesAceptables[array_rand($combinacionesAceptables)];
+        $combinacion = implode('', $combinacion);
+        foreach (str_split($combinacion) as $letra) {
+          echo "<div class='letter'>$letra</div>";
+        }
+      ?>
+    </div>
+    
+    <form>
+      <input type="text" placeholder="Escribe tu palabra aquí...">
+      <button type="submit">Comprobar</button>
+    </form>
+  </div>
+</body>
+</html>
+
+
 
