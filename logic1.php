@@ -244,7 +244,7 @@ function generarPangramas($miStringAleatorio, $letraAleatoria, $palabras) {
  * Para ello, ejecutaremos en bucle estas funciones hasta que guardemos un número considerable de estas combinaciones
  * 
  */
-
+//////////////////////////////////////////IMPORTANTE///////////////////////////////////////////////////////
 //generación de un string de letras pseudoalatorias
 $stringAleatorio = generarStringAleatorio();
 //control
@@ -255,8 +255,9 @@ $letraAleatoria = substr($stringAleatorio, mt_rand(0, strlen($stringAleatorio) -
 //control
 //echo "$letraAleatoria";
 //echo "<br>";
-
+//////////////////////////////////////////IMPORTANTE/////////////////////////////////////////////////////////
 //generación de pangramas
+echo "patata";
 $pangramas = generarPangramas($stringAleatorio, $letraAleatoria, $palabras);
 print_r($pangramas);
 
