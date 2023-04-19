@@ -4,7 +4,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
-
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -133,7 +133,7 @@
 </head>
 <body>
     <div class="signup-form">
-<form action="/examples/actions/confirmation.php" method="post">
+<form method="POST" action="auth/autoritzacio.php" method="post">
     <h2>Login</h2>
     <div class="form-group">
   <label for="username">Username:</label>
@@ -144,7 +144,7 @@
   <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="required"><br><br>
     </div>
   <div class="form-group">
-  <button type="submit" class="btn btn-success btn-lg btn-block">Login Now</button>
+  <button type="submit" value="login" class="btn btn-success btn-lg btn-block">Login Now</button>
   </div>
 </form>
 
@@ -155,4 +155,13 @@
 </div>
 </body>
 </html>
+
+<?php
+if(isset($_SESSION['missatge'])){
+    echo "<br>";
+    echo $_SESSION['missatge'];
+    unset($_SESSION['missatge']);
+}
+
+?>
 

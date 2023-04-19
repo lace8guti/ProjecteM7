@@ -1,4 +1,8 @@
 <?php
+//código de seguridad de la página, así me aseguro que está bien loggeado
+include 'auth/seguretat.php';
+
+
 
 /* 
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -620,6 +624,7 @@ function borrarUltimoCaracter() {
       <button type="submit">Comprobar</button>
       <button onclick="shuffleLetters()">Mezcla letras</button>
       <button onclick="borrarUltimoCaracter()">Borrar última letra</button>
+      <a class="nav-link" href="auth/logout.php">logout</a>
 </body>
 </html>
 
